@@ -10,10 +10,10 @@ for (int i = 0; i < n; i++)
     hash[arr[i]]++;
 
 }
-// for (int i = 0; i < n; i++)
-// {
-//     cout<<arr[i]<<hash[arr[i]]<<endl;
-// }
+for (int i = 0; i < n; i++)
+{
+    cout<<arr[i]<<hash[arr[i]]<<endl;
+}
 
 for (int i = 1; i < n; i++)
 {

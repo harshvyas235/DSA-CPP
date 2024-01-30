@@ -1,4 +1,4 @@
-#include<iostream>
+ #include<iostream>
 using namespace std;
 void diagnol(int arr[][3],int row,int col){
     for (int i = row-1; i >=0; i--)
