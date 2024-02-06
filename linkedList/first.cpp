@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string.h>
+#include<stack>
 #include<vector>
 using namespace std;
 class Node{
@@ -110,7 +111,7 @@ Node* middl(Node* &head){
                s= s->next;
             }
             else{
-                cout<<s->data<<": s ka data"<<endl;
+                // cout<<s->data<<": s ka data"<<endl;
                 return s;
 
             }
@@ -135,29 +136,55 @@ bool isPalindrome(Node* head) {
        if(head->next==NULL){
            return true;
        }
-       Node* middle = middl(head);
-       printAllNode(middle->next);
-       cout<<endl;
+    //    Node* middle = middl(head);
+    //    printAllNode(middle->next);
+    //    cout<<endl;
 
-       Node* head2= middle->next;
-       printAllNode(head2);
-       cout<<endl;
+    //    Node* head2= middle->next;
+    //    printAllNode(head2);
+    //    cout<<endl;
 
-        reverse(head2);
-        printAllNode(head2);
-       cout<<endl;
-        Node*temp= head;
-        while(head2!=NULL&&temp!=NULL){
-            if(temp->data==head2->data){
-                temp= temp->next;
-                head2=head2->next;
-            }
-            else{
-                return false;
-            }
+    //     reverse(head2);
+    //     printAllNode(head2);
+    //    cout<<endl;
+    //     Node*temp= head;
+    //     while(head2!=NULL&&temp!=NULL){
+    //         if(temp->data==head2->data){
+    //             temp= temp->next;
+    //             head2=head2->next;
+    //         }
+    //         else{
+    //             return false;
+    //         }
 
+    //     }
+    //    return true;
+
+       // using the stack 
+       Node* mid = middl(head);
+       cout<<mid->data;
+       Node* temp2=head;
+       Node* node2= mid->next;
+       Node* temp = node2;
+       stack<int> st;
+       while(temp!=NULL){
+        st.push(temp->data);
+        temp=temp->next;
+       }
+       while(node2!=NULL ){
+        if(st.top()!=temp2->data){
+            return false;
         }
+        else{
+        
+            temp2=temp2->next;
+            st.pop();
+        }
+       }
        return true;
+      
+
+
     }
 
 int removeK(Node* head,int k){
@@ -171,22 +198,89 @@ int removeK(Node* head,int k){
     }
     return temp->data;
 }
+// Node* oddlist(Node*head){
+//     if(head==NULL){
+//         return NULL;
+//     }
+    
+//     Node* odd = new Node();
+//     odd->data=head->data;
+    
+//     odd->next= oddlist(head->next->next);
 
+//     return odd;
+    
+    
+// }
+
+
+Node* Clone(Node* list, bool copyOdd = true) {
+    if (list == NULL) return NULL;
+
+    if (!copyOdd) {
+        // Move to the next node for even indices
+        return Clone(list->next, !copyOdd);
+    }
+
+    Node* result = new Node;
+    result->data = list->data;
+    
+
+    result->next = Clone(list->next, !copyOdd);
+
+    return result;
+}
+Node* evenClone(Node* list,int count ) {
+    
+   
+    if (list== NULL) return NULL;
+    if(count%2!=0){
+        
+         return evenClone(list->next,count+1);
+    }
+    
+    else{
+    Node* result = new Node;
+    result->data = list->data;
+   
+    
+    
+    result->next = evenClone(list->next,count+1);
+     return result;
+    }
+
+   
+}
 int main(){
     Node*head=NULL;
     Node*tail=NULL;
 
     insertAtTail(tail,head,1);
+    insertAtTail(tail,head,4);
+    insertAtTail(tail,head,3);
+    insertAtTail(tail,head,5);
+    insertAtTail(tail,head,3);
     insertAtTail(tail,head,2);
-    insertAtTail(tail,head,3);
-    insertAtTail(tail,head,3);
-    insertAtTail(tail,head,4);
-    insertAtTail(tail,head,4);
+    insertAtTail(tail,head,1);
     printAllNode(head);
-    int k =5;
+    Node* odd = Clone(head);
+    cout<<endl;
+   Node* even = evenClone(head,1);
+    printAllNode(odd);
+    cout<<endl;
 
-   int ans = removeK(head, k );
-   cout<<endl<<ans;
+
+     printAllNode(head);
+    cout<<endl;
+    printAllNode(even);
+    
+
+
+
+//     int k =5;
+
+//    int ans = removeK(head, k );
+//    cout<<endl<<ans;
 
 
 
@@ -208,8 +302,7 @@ int main(){
     
     
     // printAllNode(head);
-    // cout<<endl;
-    // cout<<isPalindrome(head);
+   
     // cout<<endl<<"after reverse head is : "<<head->data<<endl;
 
     //find the middle of the list 
@@ -237,4 +330,5 @@ int main(){
 
 
 return 0;
+
 }
