@@ -1,45 +1,24 @@
 #include<iostream>
 #include<string.h>
-#include<stack>
 #include<vector>
+#include<stack>
 using namespace std;
 
-
-void insertBottom(stack<int>&st,int n){
-    // if(st.empty()){
-    //     st.push(n);
-    // }
-    
-    // int val = st.top();
-    // st.pop();
-    // insertBottom(st,n);
-
-    // st.push(val);
-
+void insertSort(stack<int> &st,int n){
     if(st.empty()){
-        
         st.push(n);
         return;
-
     }
-    int val= st.top();
-    st.pop();
-    insertBottom(st,n);
-    st.push(val);
-    
-
-
-}
-
-void reverse(stack<int> &st){
-    if(st.empty()){
+    if(n>=st.top() ){
+        st.push(n);
         return;
     }
     int val = st.top();
     st.pop();
-    reverse(st);
-    insertBottom(st,val);
+    insertSort(st,n);
+    st.push(val);
 }
+
 void print(stack<int> st){
     while (!st.empty())
     {
@@ -48,7 +27,6 @@ void print(stack<int> st){
     }
     
 }
-
 int main(){
     stack<int> st;
     int n;
@@ -59,12 +37,13 @@ int main(){
         cin>>c;
         st.push(c);
     }
+
     print(st);
     cout<<endl;
-    reverse(st);
+    insertSort(st,3);
     print(st);
     
-
+    
     
 
 

@@ -21,6 +21,7 @@ int main(){
         
 
     }
+    cout<<st.size();
    
     
 
