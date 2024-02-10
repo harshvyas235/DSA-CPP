@@ -39,7 +39,7 @@ void printingFneg(int *arr,int size,int k){
 
 }
 int main(){
-    int arr[]={2,-5,4,-1,2,0,5};
+    int arr[]={2,-5,4,-1,-2,0,5};
 
     printingFneg(arr,7,3);
 
