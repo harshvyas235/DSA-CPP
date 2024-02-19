@@ -21,10 +21,12 @@ int find(string& s,int i,char a,int& ans){
 
 
 
+
+
 int main(){
     string s="abbbsbfba";
    
-    char a='z';
+    char a='a';
    
 
     int ans=-1;
