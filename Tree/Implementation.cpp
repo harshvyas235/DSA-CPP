@@ -97,28 +97,54 @@ void levelOrderTraverser(Node* root){
         
     }
 }
+
+void sumTree(Node* root, int targetSum,int sum, vector<vector<int>>&ans,vector<int>arr)
+   { 
+       if(root==NULL){
+           return ;
+
+       }
+       sum+=root->data;
+       arr.push_back(root->data);
+       if(root->left->data==-1 &&root->right->data==-1){
+           if(sum==targetSum){
+               cout<<"sum : "<<sum<<endl;
+               ans.push_back(arr);
+               return;
+            }
+           else{
+                
+             cout<<"sirf sum"<<sum<<endl;
+               return ;
+
+           }
+        }
+
+   }
+
+
+vector<vector<int>> pathSum(Node* root, int targetSum) {
+     int sum =0;
+     vector<vector<int>> ans;
+     vector<int> arr;
+     sumTree(root,targetSum,sum,ans,arr);
+     return ans;
+    
+        
+    
+    }
 int main(){
 
     Node* root = createTree();
     // cout<<root->data;
-    cout<<"printing pre order"<<endl;
-
-    preOrder(root);
-    cout<<endl;
-
-     cout<<"printing In order"<<endl;
-
-    inOrder(root);
-    cout<<endl;
-
-
-     cout<<"printing post order"<<endl;
-
-    postOrder(root);
-    cout<<endl;
+  
     cout<<"level order print : "<<endl;
     levelOrderTraverser(root);
 
+     int sum =0;
+     vector<vector<int>> ans;
+     vector<int> arr;
+     sumTree(root,22,sum,ans,arr);
     
 
 return 0;
