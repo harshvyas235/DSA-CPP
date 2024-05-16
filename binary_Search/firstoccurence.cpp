@@ -21,6 +21,7 @@ int findfirstoccurence(int arr[],int n,int s, int e)
 
  }
  s=0,e=6;
+ mid = s+(e-s)/2;
  while(s<=e){
     if(arr[mid]==n){
         last =mid;

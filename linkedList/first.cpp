@@ -41,8 +41,8 @@ void printAllNode(Node* &head){
         temp=temp->next;
     }
 }
-void insertAtTail(Node* &tail,Node* &head,int num){
-    if(tail==NULL){
+void insertAtTail(Node* &head,Node* &tail,int num){
+    if(head==NULL){
       Node* newNOde =new Node(num);
       tail=newNOde;
       head=newNOde;
@@ -65,6 +65,39 @@ int findLength(Node*&head){
     }
 
     return count;
+}
+
+void atanyPosition(Node* &head,int pos,int leng,int val){
+
+    Node*firstNode = head;
+    Node* temp = new Node();
+    if(pos<=1){
+        Node* newNode= new Node(val);
+        newNode->next=head;
+        head = newNode;
+
+    }
+    if(pos>1 && pos<leng){
+        int i=1;
+        while(i!=pos){
+            temp=firstNode;
+            head=firstNode->next;
+            i++;
+        }
+        Node* newNode= new Node(val);
+
+        temp->next=newNode;
+        newNode->next=firstNode;
+    }
+    if(pos>=leng){
+       while(firstNode->next!=NULL){
+        firstNode=firstNode->next;
+        continue;
+       }
+        Node* newNode= new Node(val);
+       firstNode->next=newNode;
+
+    }
 }
 
 void reverse(Node* &head,Node* &tail){
@@ -251,28 +284,48 @@ Node* evenClone(Node* list,int count ) {
 
    
 }
+// void headcheck(Node* &head){
+//     head=head->next;
+//     head->next=NULL;
+// }
 int main(){
     Node*head=NULL;
     Node*tail=NULL;
 
-    insertAtTail(tail,head,1);
-    insertAtTail(tail,head,4);
-    insertAtTail(tail,head,3);
-    insertAtTail(tail,head,5);
-    insertAtTail(tail,head,3);
-    insertAtTail(tail,head,2);
-    insertAtTail(tail,head,1);
-    printAllNode(head);
-    Node* odd = Clone(head);
-    cout<<endl;
-   Node* even = evenClone(head,1);
-    printAllNode(odd);
-    cout<<endl;
+    insertAtTail(head,tail,1);
 
 
-     printAllNode(head);
-    cout<<endl;
-    printAllNode(even);
+    Node*temp=head;
+    delete temp;
+    cout<<temp->next;
+    // insertAtTail(head,tail,4);
+    // insertAtTail(head,tail,3);
+    // insertAtTail(head,tail,5);
+    // insertAtTail(head,tail,3);
+    // insertAtTail(head,tail,2);
+    // insertAtTail(head,tail,1);
+    // printAllNode(head);
+
+    // atanyPosition(head,7,7,100);
+    // cout<<endl;
+    // printAllNode(head);
+    // cout<<endl;
+   
+  
+
+    
+
+
+//     Node* odd = Clone(head);
+//     cout<<endl;
+//    Node* even = evenClone(head,1);
+//     printAllNode(odd);
+//     cout<<endl;
+
+
+    //  printAllNode(head);
+    // cout<<endl;
+    // printAllNode(even);
     
 
 

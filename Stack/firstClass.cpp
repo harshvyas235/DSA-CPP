@@ -27,7 +27,7 @@ public:
   }
 
   void push(int val){
-    if(top<size){
+    if(top<size-1){
         top++;
         arr[top]=val;
     }
@@ -73,8 +73,9 @@ public:
         
             cout<<"top : "<<top<<endl;
             cout<<"length of the stack : "<<getLength()<< endl;
-            getSize();
-            cout<<arr[top]<<endl;
+            cout<<"total size of the stack " ;
+             getSize();
+            cout<<"top element of the stack " <<arr[top]<<endl;
         
         
     }
@@ -83,31 +84,31 @@ public:
 
 };
 int main(){
-    Stack s(7);
+    Stack s(5);
     // s.get_top();
     // cout<<s.getLength();
     // s.print();
     
     // cout<<s.getLength();
 //    s.getSize();
-    s.push(5);
-    s.print();
-    s.push(4);
-    s.print();
-    s.push(7);
-    s.print();
-    s.push(10);
-    s.print();
-    s.push(14);
-    s.print();
-    s.push(17);
-    s.print();
-    s.push(34);
-    s.print();
-    s.push(23);
-    s.print();
-    s.push(43);
-    s.print();
+    // s.push(5);
+    // s.print();
+    // s.push(4);
+    // s.print();
+    // s.push(7);
+    // s.print();
+    // s.push(10);
+    // s.print();
+    // s.push(14);
+    // s.print();
+    // s.push(17);
+    // s.print();
+    // s.push(34);
+    // s.print();
+    // s.push(23);
+    // s.print();
+    // s.push(43);
+    // s.print();
     // s.push(5);
     // s.push(5);
     // s.push(5);
@@ -117,6 +118,21 @@ int main(){
 
     // cout<<s.getLength();
    
+       s.push(5);
+      cout<< s.getLength()<<endl;
+      s.push(4);
+      cout<< s.getLength()<<endl;
+      
+      s.push(4);
+      s.push(4);
+      s.push(4);
+      s.push(6);
+
+      s.print();
+
+
+      
+
   
 
 

@@ -31,27 +31,28 @@ int main(){
     }
     
     int size= st.size();
-    int index;
+    int index=1;
     if(size%2==0){
-        index= size/2;
+        size= size/2;
 
     }
     else{
-        index= size/2 +1;
+        size= size/2 +1;
     }
     int ans =-1;
 //    cout<<st.size();
    cout<<endl;
 
    print(st);
-   getMidd(st,1,ans,index);
+   getMidd(st,index,ans,size);
 //    cout<<endl;
 
 //    cout<<st.size();
 
    cout<<endl;
+    cout<<ans;
    print(st);
-   cout<<ans;
+  
    cout<<endl;
 
 

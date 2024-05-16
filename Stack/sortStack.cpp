@@ -10,7 +10,7 @@ void insertSort(stack<int> &st,int n){
         st.push(n);
         return;
     }
-    if(n>=st.top()){
+    if(n<=st.top()){
         st.push(n);
         return;
     }
