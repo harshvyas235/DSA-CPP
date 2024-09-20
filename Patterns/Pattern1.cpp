@@ -200,3 +200,38 @@ for (int row= 0; row < n; row++)
 return 0;
 }
 */
+#include<iostream>
+#include<string.h>
+#include<vector>
+using namespace std;
+int main(){
+for (int i = 1; i <= 5; i++)
+{
+    
+    for (int j = 1; j <= i; j++)
+    {
+        if(i!=5){
+            if(j==1){
+            cout<<j<<" ";
+        }
+        else{
+            cout<<"_ ";
+        }
+        }
+        else{
+            cout<<j<<" ";
+        }
+        
+
+        
+    }
+    if(i!=1&&i!=5){
+        cout<<i<<" ";
+    }
+    
+    cout<<endl;
+    
+}
+
+return 0;
+}

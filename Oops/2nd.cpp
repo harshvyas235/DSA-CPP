@@ -35,12 +35,33 @@ class Pegion : public Bird{
  
 
 };
+
+class parent {
+    private:
+    int c;
+
+    protected:
+    int h =10;
+    public:
+
+    int a;
+    void hello(){
+        cout<<"hello";
+    }
+};
+class son : protected parent{
+    public:
+     void check(){
+       cout<< this->h;
+     }
+
+};
 int main(){
     Bird p;
     Pegion m;
     m.print();
-  
-    
+  son a;
+  a.check();  
     
    
 

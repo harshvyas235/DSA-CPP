@@ -81,12 +81,12 @@ void levelOrderTraverser(Node* root){
 
 
 int main(){
-int inorder[]={10,8,6,2,4,12};
-int preorder[]={2,8,10,6,4,12};
+int inorder[]={9,3,15,20,7};
+int preorder[]={3,9,20,15,7};
 int preindex=0;
 int inorderStart = 0;
-int inorderEnd=5;
-int size =6;
+int inorderEnd=4;
+int size =5;
 Node* root=CreateTreeUsingPreAndInOrder(preorder,preindex,inorder,inorderStart,inorderEnd,size);
 levelOrderTraverser(root);
 

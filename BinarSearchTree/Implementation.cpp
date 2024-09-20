@@ -14,7 +14,10 @@ class Node{
         this->left=NULL;
         this->right=NULL;
     }
-
+    Node(){
+        this->left=NULL;
+        this->right=NULL;
+    }
 };
 
 Node* insertBst(Node* root,int data){
@@ -139,15 +142,15 @@ bool searchInBinaryTree(Node*root,int target){
 }
 
 int main(){
-    int arr[]={10,20,30,40,50,60};
-    int size=6;
-    int s=0;
-    int e=size-1;
-    Node* root = bstFromInorder(arr,s,e);
+    // int arr[]={10,20,30,40,50,60};
+    // int size=6;
+    // int s=0;
+    // int e=size-1;
+    Node* root =new Node();
     // cout<<root->data;
    
    
-    // createNode(root);
+    createNode(root);6
     
     // int val =55;
     //     bool ans = searchInBinaryTree(root,55);
